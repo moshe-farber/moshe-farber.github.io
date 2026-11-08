@@ -24,17 +24,18 @@
   }
   var posts=(C.linkedinPosts||[]).filter(function(p){return p&&typeof p==='object'&&p.url;}).slice(0,3);
   var sec=document.querySelector('[data-linkedin-section]'),grid=document.querySelector('[data-linkedin-grid]');
+  var LI='<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.4H4.6V19h2.5V9.4zM5.9 5a1.45 1.45 0 100 2.9 1.45 1.45 0 000-2.9zM19.4 13.6c0-2.6-1.4-4.4-3.9-4.4-1.2 0-2.1.6-2.5 1.3V9.4h-2.4V19H13v-4.8c0-1.3.3-2.5 1.9-2.5s1.6 1.5 1.6 2.6V19h2.5v-5.4z"/></svg>';
   if(sec&&grid&&posts.length){
     posts.forEach(function(p){
       var a=document.createElement('a');a.className='ins-card ins-post';a.href=p.url;a.target='_blank';a.rel='noopener';
-      var top=document.createElement('div');top.className='ins-meta';
-      var who=document.createElement('span');who.className='ins-who';who.textContent='Moshe Farber · LinkedIn';
-      var dt=document.createElement('span');dt.className='ins-date';dt.textContent=p.date||'';
-      top.appendChild(who);top.appendChild(dt);
-      
-      var x=document.createElement('p');x.textContent=p.excerpt||'';
-      var more=document.createElement('span');more.className='ins-more';more.textContent='Read more on LinkedIn \u2192';
-      a.appendChild(top);a.appendChild(x);a.appendChild(more);grid.appendChild(a);
+      a.setAttribute('aria-label','LinkedIn post by Moshe Farber, '+(p.date||'')+'. Read more on LinkedIn');
+      a.innerHTML='<div class="li-top"><img class="li-av" src="img/moshe-avatar.jpg" alt="" width="48" height="48" loading="lazy">'
+        +'<div class="li-id"><b>Moshe Farber</b><span>Fractional CMO &middot; Executive Growth Partner</span><span>'+(p.date||'')+'</span></div>'
+        +'<span class="li-logo">'+LI+'</span></div>';
+      var x=document.createElement('p');x.className='li-text';x.textContent=p.excerpt||'';a.appendChild(x);
+      var more=document.createElement('span');more.className='li-more';more.textContent='\u2026see more';a.appendChild(more);
+      var ft=document.createElement('div');ft.className='li-foot';ft.innerHTML='<span class="li-logo sm">'+LI+'</span><span>Read more on LinkedIn &rarr;</span>';a.appendChild(ft);
+      grid.appendChild(a);
     });
     sec.hidden=false;
   }
