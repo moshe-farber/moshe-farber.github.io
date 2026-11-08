@@ -586,3 +586,16 @@ img,picture,svg{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none
 /* proportion pass */
 @media (min-width:901px){.faq-photo{width:100%;max-width:300px;margin-top:32px;position:sticky;top:110px}.think-photo{align-self:start;position:sticky;top:110px}.think-grid{align-items:start}}
 @media (min-width:901px){.think-photo img{aspect-ratio:4/5;object-fit:cover;object-position:35% center}}
+
+/* book signup */
+.book-signup{margin-top:8px;max-width:460px}
+.bs-label{display:block;font-weight:600;font-size:15px;margin-bottom:10px}
+.bs-row{display:flex;gap:10px}
+.bs-row input{flex:1;min-width:0;padding:14px 16px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.bs-row input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.bs-row .btn{white-space:nowrap}
+.bs-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.bs-note{font-size:13.5px;color:#6b7280;margin:10px 0 0}
+.bs-note.ok{color:#15803d;font-weight:600;font-size:15px}
+.bs-note.err{color:#b91c1c}
+@media (max-width:520px){.bs-row{flex-direction:column}.bs-row .btn{width:100%}}

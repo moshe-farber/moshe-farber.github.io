@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#0B1626">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="preload" href="fonts/Bricolage-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -511,7 +511,15 @@
         <li>How to know when you&rsquo;re ready for a CMO or a fractional CMO</li>
         <li>Real examples of leadership that drives results</li>
       </ul>
-      <a class="btn btn-dark" href="index.html?topic=book#contact" data-topic="book">Tell me when it&rsquo;s out</a>
+      <form class="book-signup" id="book-signup" novalidate>
+        <label for="bs-email" class="bs-label">Get notified when the book is out</label>
+        <div class="bs-row">
+          <input id="bs-email" type="email" name="email" placeholder="Your email" autocomplete="email" required>
+          <button class="btn btn-dark" type="submit">Notify me</button>
+        </div>
+        <input type="checkbox" name="botcheck" class="bs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="bs-note" id="bs-note" aria-live="polite">One email when it launches. No spam.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -647,8 +655,8 @@
   </div>
   <p class="wrap legal">&copy; 2026 Moshe Farber.</p>
 </footer>
-<script src="site-config.js?v=12"></script>
-<script src="script.js?v=12"></script>
+<script src="site-config.js?v=13"></script>
+<script src="script.js?v=13"></script>
 <script>
 document.querySelectorAll('.sl-btn').forEach(function(b){b.addEventListener('click',function(){var s=document.querySelector('.case-grid.slider');var c=s.querySelector('.case');s.scrollBy({left:(c.offsetWidth+16)*+b.dataset.dir,behavior:'smooth'});});});
 </script>

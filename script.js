@@ -113,3 +113,21 @@
   function lock(){document.querySelectorAll('img').forEach(function(i){i.setAttribute('draggable','false');});}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',lock);else lock();
 })();
+
+/* ---------- Book sign-up (quick form) ---------- */
+(function(){
+  var C=window.MF_CONFIG||{},f=document.getElementById('book-signup');if(!f)return;
+  var note=document.getElementById('bs-note'),btn=f.querySelector('button'),em=f.elements['email'];
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(em.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.textContent='Please enter a valid email.';note.className='bs-note err';em.focus();return;}
+    if(f.elements['botcheck'].checked)return;
+    var d=Object.assign({},C.formHiddenFields||{},{subject:'Book list sign-up: '+v,email:v,name:'Book list',message:'Please notify me when the book is out.',list:'Book list'});
+    btn.disabled=true;btn.textContent='Sending\u2026';
+    fetch(C.formEndpoint||'https://api.web3forms.com/submit',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().catch(function(){return {success:r.ok};});})
+      .then(function(j){if(j&&j.success!==false){f.querySelector('.bs-row').style.display='none';note.textContent='You\u2019re on the list. Thank you!';note.className='bs-note ok';}else throw 0;})
+      .catch(function(){btn.disabled=false;btn.textContent='Notify me';note.textContent='Something went wrong. Please try again.';note.className='bs-note err';});
+  });
+})();
