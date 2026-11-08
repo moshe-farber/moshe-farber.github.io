@@ -25,7 +25,7 @@
 <meta name="theme-color" content="#0B1626">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="preload" href="fonts/Bricolage-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -511,11 +511,12 @@
         <li>How to know when you&rsquo;re ready for a CMO or a fractional CMO</li>
         <li>Real examples of leadership that drives results</li>
       </ul>
-      <form class="book-signup" id="book-signup" novalidate>
+      <button class="btn btn-dark bs-open" type="button" id="bs-open" aria-controls="book-signup" aria-expanded="false">Notify me when it&rsquo;s out</button>
+      <form class="book-signup" id="book-signup" novalidate hidden>
         <label for="bs-email" class="bs-label">Get notified when the book is out</label>
         <div class="bs-row">
           <input id="bs-email" type="email" name="email" placeholder="Your email" autocomplete="email" required>
-          <button class="btn btn-dark" type="submit">Notify me</button>
+          <button class="btn btn-dark" type="submit">Sign me up</button>
         </div>
         <label class="bs-consent"><input type="checkbox" name="consent" id="bs-consent" required> <span>I agree to get emails about the book and occasional updates. No spam, unsubscribe anytime.</span></label>
         <input type="checkbox" name="botcheck" class="bs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -656,8 +657,8 @@
   </div>
   <p class="wrap legal">&copy; 2026 Moshe Farber.</p>
 </footer>
-<script src="site-config.js?v=14"></script>
-<script src="script.js?v=14"></script>
+<script src="site-config.js?v=15"></script>
+<script src="script.js?v=15"></script>
 <script>
 document.querySelectorAll('.sl-btn').forEach(function(b){b.addEventListener('click',function(){var s=document.querySelector('.case-grid.slider');var c=s.querySelector('.case');s.scrollBy({left:(c.offsetWidth+16)*+b.dataset.dir,behavior:'smooth'});});});
 </script>

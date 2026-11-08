@@ -72,6 +72,8 @@
   function showThanks(){f.hidden=true;if(thanks){thanks.hidden=false;try{thanks.focus();}catch(e){}}}
   function setNote(t,err){if(!note)return;note.textContent=t;note.classList.toggle('err',!!err);}
 
+  var ob=document.getElementById('bs-open'),t0=0;
+  if(ob){ob.addEventListener('click',function(){f.hidden=false;ob.hidden=true;ob.setAttribute('aria-expanded','true');t0=Date.now();setTimeout(function(){em.focus();},50);});}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var E=f.elements,name=E['name'].value.trim(),email=E['email'].value.trim(),company=E['company'].value.trim(),msg=E['message'].value.trim(),topic=E['topic']?E['topic'].value:'';
@@ -124,6 +126,7 @@
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.textContent='Please enter a valid email.';note.className='bs-note err';em.focus();return;}
     if(!f.elements['consent'].checked){note.textContent='Please tick the box to agree to emails.';note.className='bs-note err';return;}
     if(f.elements['botcheck'].checked)return;
+    if(t0&&Date.now()-t0<2500)return;
     var d=Object.assign({},C.formHiddenFields||{},{subject:'Book list sign-up: '+v,email:v,name:'Book list',message:'Please notify me when the book is out. Consent: agreed to emails about the book and occasional updates.',list:'Book list'});
     btn.disabled=true;btn.textContent='Sending\u2026';
     fetch(C.formEndpoint||'https://api.web3forms.com/submit',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
