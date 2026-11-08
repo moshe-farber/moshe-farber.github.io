@@ -32,5 +32,9 @@ window.MF_CONFIG = {
        "urn:li:activity:7xxxxxxxxxxxxxxxxxx"
        "https://www.linkedin.com/posts/mofarber_some-title-activity-7xxxxxxxxxxxxxxxxxx-AbCd"
      Empty list = the section stays hidden. */
-  linkedinPosts: []
+  linkedinPosts: [
+    "urn:li:activity:7435333302133088256",
+    "urn:li:activity:7347981468817629184",
+    "urn:li:activity:7343617966560751617"
+  ]
 };
