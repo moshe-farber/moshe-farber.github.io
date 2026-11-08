@@ -599,3 +599,5 @@ img,picture,svg{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none
 .bs-note.ok{color:#15803d;font-weight:600;font-size:15px}
 .bs-note.err{color:#b91c1c}
 @media (max-width:520px){.bs-row{flex-direction:column}.bs-row .btn{width:100%}}
+.bs-consent{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:13.5px;line-height:1.45;color:#4b5563;cursor:pointer}
+.bs-consent input{margin-top:3px;width:16px;height:16px;flex:none;accent-color:var(--blue)}

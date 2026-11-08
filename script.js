@@ -122,8 +122,9 @@
     e.preventDefault();
     var v=(em.value||'').trim();
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){note.textContent='Please enter a valid email.';note.className='bs-note err';em.focus();return;}
+    if(!f.elements['consent'].checked){note.textContent='Please tick the box to agree to emails.';note.className='bs-note err';return;}
     if(f.elements['botcheck'].checked)return;
-    var d=Object.assign({},C.formHiddenFields||{},{subject:'Book list sign-up: '+v,email:v,name:'Book list',message:'Please notify me when the book is out.',list:'Book list'});
+    var d=Object.assign({},C.formHiddenFields||{},{subject:'Book list sign-up: '+v,email:v,name:'Book list',message:'Please notify me when the book is out. Consent: agreed to emails about the book and occasional updates.',list:'Book list'});
     btn.disabled=true;btn.textContent='Sending\u2026';
     fetch(C.formEndpoint||'https://api.web3forms.com/submit',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
       .then(function(r){return r.json().catch(function(){return {success:r.ok};});})
