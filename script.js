@@ -72,8 +72,6 @@
   function showThanks(){f.hidden=true;if(thanks){thanks.hidden=false;try{thanks.focus();}catch(e){}}}
   function setNote(t,err){if(!note)return;note.textContent=t;note.classList.toggle('err',!!err);}
 
-  var ob=document.getElementById('bs-open'),t0=0;
-  if(ob){ob.addEventListener('click',function(){f.hidden=false;ob.hidden=true;ob.setAttribute('aria-expanded','true');t0=Date.now();setTimeout(function(){em.focus();},50);});}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var E=f.elements,name=E['name'].value.trim(),email=E['email'].value.trim(),company=E['company'].value.trim(),msg=E['message'].value.trim(),topic=E['topic']?E['topic'].value:'';
@@ -120,6 +118,8 @@
 (function(){
   var C=window.MF_CONFIG||{},f=document.getElementById('book-signup');if(!f)return;
   var note=document.getElementById('bs-note'),btn=f.querySelector('button'),em=f.elements['email'];
+  var ob=document.getElementById('bs-open'),t0=0;
+  if(ob){ob.addEventListener('click',function(){f.hidden=false;ob.hidden=true;ob.setAttribute('aria-expanded','true');t0=Date.now();setTimeout(function(){em.focus();},50);});}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var v=(em.value||'').trim();
