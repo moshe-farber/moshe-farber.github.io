@@ -8,11 +8,11 @@ window.MF_CONFIG = {
        Formspree:  "https://formspree.io/f/abcdwxyz"
        Web3Forms:  "https://api.web3forms.com/submit"   (+ access_key below)
      Empty = the form falls back to opening the visitor's email app. */
-  formEndpoint: "https://moshefarber.netlify.app/",
+  formEndpoint: "https://api.web3forms.com/submit",
 
   /* Extra hidden fields some services need, e.g. Web3Forms:
        { access_key: "YOUR-ACCESS-KEY" } */
-  formHiddenFields: {},
+  formHiddenFields: { access_key: "8f3b3145-a82c-434e-8d30-041c7acb54eb", from_name: "moshefarber.com" },
 
   /* Where messages go (used by the email fallback). */
   fallbackEmail: "",
