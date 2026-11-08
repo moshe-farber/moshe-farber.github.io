@@ -31,10 +31,10 @@
       var who=document.createElement('span');who.className='ins-who';who.textContent='Moshe Farber · LinkedIn';
       var dt=document.createElement('span');dt.className='ins-date';dt.textContent=p.date||'';
       top.appendChild(who);top.appendChild(dt);
-      var h=document.createElement('h3');h.textContent=p.title||'';
+      
       var x=document.createElement('p');x.textContent=p.excerpt||'';
-      var more=document.createElement('span');more.className='ins-more';more.textContent='Read the full post on LinkedIn \u2192';
-      a.appendChild(top);a.appendChild(h);a.appendChild(x);a.appendChild(more);grid.appendChild(a);
+      var more=document.createElement('span');more.className='ins-more';more.textContent='Read more on LinkedIn \u2192';
+      a.appendChild(top);a.appendChild(x);a.appendChild(more);grid.appendChild(a);
     });
     sec.hidden=false;
   }
