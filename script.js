@@ -87,7 +87,7 @@
     var extra=C.formHiddenFields||{};Object.keys(extra).forEach(function(k){fd.append(k,extra[k]);});
     var b=f.querySelector('button[type=submit]');if(b){b.disabled=true;b.textContent='Sending\u2026';}
     setNote('Sending\u2026');
-    fetch(endpoint,{method:'POST',mode:'no-cors',body:new URLSearchParams(fd).toString(),headers:{'Content-Type':'application/x-www-form-urlencoded'}}).then(function(r){
+    fetch(endpoint,{method:'POST',mode:'cors',body:new URLSearchParams(fd).toString(),headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'}}).then(function(r){
       if(!r.ok&&r.type!=='opaque') throw new Error('status '+r.status);
       showThanks();
     }).catch(function(){
