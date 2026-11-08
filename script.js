@@ -22,13 +22,19 @@
     m=v.match(/activity[-:](\d{15,})/); if(m) return 'https://www.linkedin.com/embed/feed/update/urn:li:activity:'+m[1];
     return '';
   }
-  var posts=(C.linkedinPosts||[]).map(embedUrl).filter(Boolean).slice(0,3);
+  var posts=(C.linkedinPosts||[]).filter(function(p){return p&&typeof p==='object'&&p.url;}).slice(0,3);
   var sec=document.querySelector('[data-linkedin-section]'),grid=document.querySelector('[data-linkedin-grid]');
   if(sec&&grid&&posts.length){
-    posts.forEach(function(u){
-      var d=document.createElement('div');d.className='ins-card';
-      var f=document.createElement('iframe');f.src=u;f.title='LinkedIn post by Moshe Farber';f.loading='lazy';f.setAttribute('allowfullscreen','');f.setAttribute('frameborder','0');
-      d.appendChild(f);grid.appendChild(d);
+    posts.forEach(function(p){
+      var a=document.createElement('a');a.className='ins-card ins-post';a.href=p.url;a.target='_blank';a.rel='noopener';
+      var top=document.createElement('div');top.className='ins-meta';
+      var who=document.createElement('span');who.className='ins-who';who.textContent='Moshe Farber · LinkedIn';
+      var dt=document.createElement('span');dt.className='ins-date';dt.textContent=p.date||'';
+      top.appendChild(who);top.appendChild(dt);
+      var h=document.createElement('h3');h.textContent=p.title||'';
+      var x=document.createElement('p');x.textContent=p.excerpt||'';
+      var more=document.createElement('span');more.className='ins-more';more.textContent='Read the full post on LinkedIn \u2192';
+      a.appendChild(top);a.appendChild(h);a.appendChild(x);a.appendChild(more);grid.appendChild(a);
     });
     sec.hidden=false;
   }

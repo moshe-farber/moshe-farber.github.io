@@ -33,8 +33,23 @@ window.MF_CONFIG = {
        "https://www.linkedin.com/posts/mofarber_some-title-activity-7xxxxxxxxxxxxxxxxxx-AbCd"
      Empty list = the section stays hidden. */
   linkedinPosts: [
-    "urn:li:activity:7435333302133088256",
-    "urn:li:activity:7347981468817629184",
-    "urn:li:activity:7343617966560751617"
+    {
+      "url": "https://www.linkedin.com/posts/mofarber_over-the-years-ive-had-conversations-with-activity-7435333302133088256-Wg-5",
+      "date": "March 2026",
+      "title": "Marketing isn't a cost center. It's a revenue engine.",
+      "excerpt": "Over the years I’ve had conversations with different companies that reached out for advice around their growth, strategy, and marketing. A pattern shows up in quite a few of them: marketing is often being run as a separate activity. Campaigns. Content. Ads. Social posts. But it isn’t really connected to how the business actually grows."
+    },
+    {
+      "url": "https://www.linkedin.com/posts/mofarber_marketingleadership-customerexperience-activity-7347981468817629184-qtmQ",
+      "date": "July 2025",
+      "title": "Where the customer experience really breaks",
+      "excerpt": "You can spend all the money in the world on ads, lead generation, onboarding processes, and follow-up systems, but still lose everything in the way you actually follow up. This is where many companies miss the mark: they invest heavily in getting people into their funnel, then drop the ball on the actual customer experience."
+    },
+    {
+      "url": "https://www.linkedin.com/posts/mofarber_fractionalcmo-marketingleadership-businessgrowth-activity-7343617966560751617-G3-A",
+      "date": "June 2025",
+      "title": "Behind the scenes as a Fractional CMO",
+      "excerpt": "Over the past months, I’ve been fortunate to work with multiple businesses across different industries, helping them navigate growth, sharpen their strategy, and align their marketing with real business goals. Companies sitting on massive customer lists, but unsure how to re-engage them and turn them into real growth."
+    }
   ]
 };
