@@ -624,3 +624,18 @@ img,picture,svg{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none
 /* Nov 8 Moshe edits */
 @media (min-width:900px){.pillars .p-kicker,ol .p-kicker{min-height:2.7em}.hero-photo{align-self:center !important;margin-top:-40px}}
 .foot-brand{display:flex;flex-direction:column;gap:14px;align-items:flex-start}.foot-brand .foot-slogan{margin:0;font-family:var(--h);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#4FD3EE;max-width:240px;line-height:1.5}.li-link{display:inline-flex;align-items:center;gap:8px}.li-ic{flex:0 0 auto}
+
+/* v23 preview: horizontal logo in footer + mobile header */
+.brand img.brand-h{display:none}
+.foot-brand img.foot-logo{width:180px;height:auto;margin:0 0 4px;display:block}
+@media (max-width:760px){
+  .brand{flex-direction:row;align-items:center;gap:0;min-width:0;flex-shrink:1}
+  .brand img.brand-stack,.brand-tag{display:none}
+  .brand img.brand-h{display:block;width:150px;max-width:100%;height:auto}
+  .nav.small .brand img.brand-h{width:132px}
+  .nav-in,.nav.small .nav-in{height:68px}
+  .foot-brand img.foot-logo{width:160px}
+  .foot-brand{gap:10px}
+  .foot-brand img.foot-cla{margin-top:2px}
+}
+@media (max-width:350px){.brand img.brand-h,.nav.small .brand img.brand-h{width:118px}}
